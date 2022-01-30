@@ -1,0 +1,46 @@
+Table 5.
+        Per capita income by source per caste and access class
+Class,,Source,Mean for each Caste,Mean total,Kruskal Wallis test
+,,,ST,SC,OBC,Unreserved,,Chi-square,df,p-Value
+HF–LA,Cash,Forest product,981,203,254,125,817,5.357,3,0.147
+Cash,Agroforest,809,79,15,–,642,5.986,3,0.112
+Cash,Agriculture⁎⁎,289,192,136,2<comma>250,266,12.034,3,0.007
+Cash,Labor,469,447,194,–,434,9.928,3,0.019
+Cash,Trade and salary,1<comma>464,1<comma>934,1<comma>037,3<comma>750,1<comma>468,5.172,3,0.160
+Cash,Forest business,89,28,65,–,80,2.660,3,0.447
+Cash,Remittance,178,894,257,–,258,2.092,3,0.553
+Cash,Livestock⁎⁎,183,114,130,–,170,19.262,3,0.000
+Cash,Total cash,4<comma>461,3<comma>891,2<comma>088,6<comma>125,4<comma>134,1.424,3,0.700
+Subsistence,Agriculture⁎⁎,857,3<comma>891,712,2<comma>125,1<comma>148,11.998,3,0.007
+Subsistence,Livestock,86,35,61,120,78,1.301,3,0.729
+Subsistence,Agroforest⁎,99,50,24,–,85,7.438,3,0.059
+Subsistence,Forest product,1<comma>096,1<comma>098,995,143,1<comma>082,1.980,3,0.576
+Subsistence,Total subsistence⁎,2<comma>138,5<comma>074,1<comma>793,2<comma>388,2<comma>393,6.836,3,0.077
+HF–HA,Cash,Forest product,895,617,1<comma>703,,1<comma>050,1.356,2,0.508
+Cash,Agroforest,28,16,75,,37,0.687,2,0.709
+Cash,Agriculture,102,45,575,,206,2.360,2,0.307
+Cash,Labor,343,347,260,,324,3.438,2,0.179
+Cash,Trade and salary⁎⁎,1<comma>512,2<comma>413,2<comma>282,,1<comma>807,13.534,2,0.001
+Cash,Forest business,49,35,105,,61,1.116,2,0.572
+Cash,Remittance⁎⁎,245,65,178,,207,8.124,2,0.017
+Cash,Livestock,171,71,297,,188,2.116,2,0.347
+Cash,Total cash⁎,3<comma>345,3<comma>608,5<comma>477,,3<comma>881,5.269,2,0.072
+Subsistence,Agriculture⁎⁎,1<comma>019,486,791,,898,9.829,2,0.007
+Subsistence,Livestock⁎⁎,97,6,85,,82,21.727,2,0.000
+Subsistence,Agroforest,54,18,111,,63,2.324,2,0.313
+Subsistence,Forest product,1<comma>280,1<comma>183,858,,1<comma>169,3.795,2,0.150
+Subsistence,Total subsistence⁎,2<comma>450,1<comma>692,1<comma>845,,2<comma>212,4.864,2,0.088
+LF–HA,Cash,Forest product,30,90,11,5,43,1.449,3,0.694
+Cash,Agroforest⁎⁎,32,46,2,,31,31.611,3,0.000
+Cash,Agriculture⁎,102,236,526,15<comma>002,498,7.418,3,0.060
+Cash,Labor⁎⁎,720,287,371,63,537,17.687,3,0.001
+Cash,Trade and salary⁎⁎,2<comma>310,2<comma>436,2<comma>076,2<comma>071,2<comma>306,39.648,3,0.000
+Cash,Forest business⁎⁎,82,48,21,-,63,15.939,3,0.001
+Cash,Remittance,176,203,328,1<comma>146,225,2.821,3,0.420
+Cash,Livestock,51,143,166,98,94,0.845,3,0.839
+Cash,Total cash⁎⁎,3<comma>502,3<comma>490,3<comma>501,18<comma>384,3<comma>797,8.864,3,0.031
+Subsistence,Agriculture⁎⁎,842,931,1<comma>740,5<comma>642,1<comma>091,7.899,3,0.048
+Subsistence,Livestock,80,38,43,12,62,3.621,3,0.305
+Subsistence,Agroforest⁎,86,127,26,13,87,14.935,3,0.002
+Subsistence,Forest product,566,817,458,922,627,2.773,3,0.428
+Subsistence,Total subsistence,1<comma>574,1<comma>913,2<comma>267,6<comma>590,1<comma>867,3.092,3,0.378
