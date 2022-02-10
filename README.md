@@ -84,131 +84,90 @@ Because the high number of columns a used PCA
 After I tryed different machine learning algorythms
 
 #### KMEANS 
-I used KElbowVisualizer(estimator = model, k = (2,5), metric='silhouette'):
+I used KElbowVisualizer(estimator = model, k = (2,5), metric='silhouette')
 ![image](https://user-images.githubusercontent.com/93095187/153495168-e7b83066-b17a-4f12-8f25-6576f3a86884.png)
 
+#### AgglomerativeClustering
+I used KElbowVisualizer (estimator = agc, k = (2,5), metric='silhouette')
+![image](https://user-images.githubusercontent.com/93095187/153495478-0027d11d-eaa0-49bb-9fd9-adc77d1c22b0.png)
 
-columns 'snow', 'snowdepth', 'solarradiation', and 'solarenergy' were dropped due to the high number of missing values.
-1 missing value for precipitation was filled with 0, as from other columns it was clear that it did not rain that day.
-'windgust' contained 1 missing value and it was dropped due to the high correlation with windspeed column
-1 missing value of pressure was filled with the value from the proceeding day as it presented similar weather conditions.
-'Conditions' column needed encoding as it was the only categorical column. The column was encoded by creating columns with 0/1 values for each weather condition.
-New columns containing information about month and day of the week were created, as they might be useful for ML model. After that column with date information was dropped.
-The data was checked for collinearity between columns. The correlation matrix was created and one by one columns with the correlation above 90% were dropped. This included: 'tempmax', 'tempmin' (high correlation to 'temp').
-Outliers. The boxplot for numerical columns were drawn. Basing on this visual representation I can conclude that all of the values are in the reasonable range and there were no outliers.
-Column with a target variable was created basing on the recorded values of PM2.5 concentration. This pollutant is often used as an air quality indicator as its concentration is related to the concentration of other pollutants. Therefore, I created three classes basing on the values of PM2.5:
-Class 0: day with good air quality, PM2.5 concentration below 50 µg/m³.
-Class 1: day with moderate air quality, PM2.5 concentration between 50 and 100 µg/m³.
-Class 2: day with bad air quality, PM concentration above 100 µg/m³.
-After creating the target column, the columns with the concentration of pollutants ('pm25', 'pm10', 'o3' and 'no2') were dropped, but this was done before ML, as they were also used for EDA.
-The cleaned data ready for Time Series and ML was saved in the separate files.
+#### GaussianMixture
+The results where:
 
-Using : python, pandas, numpy, matplotlib, seaborn
+ gmm2
+ 
+Silhouette Coefficient: 0.620
+Variance Ratio Criterion: 291476.437
 
-05 - Time Series
-Time Series Analysis was performed separately for each pollutant (PM2.5, PM10, ozone and nitrogen dioxide) in each city. The analysis included:
+gmm3
 
-Stationarity test - all analysed time series data was stationary.
-Autocorrelation check - graphs showing autocorrelation and partial autocorrelation were drawn for each pollutant. These graphs pointed that there is similarity between values for high number of lags.
-Decomposition to see trend line.
-Train/test split in proportion 80/20 to evaluate chosen model.
-Implementation of model proposed by FbProphet liabry firstly for tarin data.
-Calculation of a model error (RMSE - Root Mean Square Deviation)
-Fitting the model on the whole available data.
-Forecasting pollutant concentration for 2022.
-Plotting important figures.
-The results of the Time Series Analysis are presented here: https://air-quality-final-project.herokuapp.com
+Silhouette Coefficient: 0.578
+Variance Ratio Criterion: 382330.351
 
-The model errors for each model are given in the Table below:
+gmm4
 
-Paris	Lyon
-PM2.5	20.6	19.9
-PM10	18.2	9.2
-Ozone	9.2	9
-NO2	14.7	4.2
-The comparison of the created models with the real data points that the predictions of the model are correct.
+Silhouette Coefficient: 0.555
+Variance Ratio Criterion: 469877.177
 
-Using : python, pandas, numpy, matplotlib, seaborn, statmodels, pdmarima, fbprohet
+gmm5
 
-06 - Machine Learning
-The purpose of this part of the project was to create a supervised machine learning model, which would correctly predict the air quality class (Good, Moderate or Bad) basing on the weather conditions during that day. For the Supervised Machine Learning part 4 models were evaluated:
+Silhouette Coefficient: 0.539
+Variance Ratio Criterion: 552613.912
 
-Logistic Regression,
-Random Forest Classifier,
-Balanced Random Forest Classifier, and
-pipeline with models proposed by TPOT library.
-The process of Machine Learning Analysis included:
+### DBSCAN
+The results were:
 
-random train/test split of data in proportion 80/20.
-standardization of the data for Logistic Regression model.
-Features selection using Select From Model, Recursive Feature Elimination and Recursive Feature Elimination with Cross-Validation.
-The results of feature selection for all models were similar. They proposed following features which were further used for models: 'temp', 'humidity', 'precip', 'windspeed', 'pressure', 'cloudcover', 'visibility', 'uvindex'.
-Hyperparameters Tunning using grid search and randomized search. Interestingly the logistic regression and random forest classifier models were giving better performance using default parameters than the ones proposed from hyperparameters tunning for Paris data, therefore default parameters were used for these models evaluation for Paris. On the other hand, for Lyon the results for hyperparameters tunning were used.
-Evaluations of the Logistic Regression, Random Forest Classifier and Balanced Random Forest Classifier models.
-TOPT implementation:
-Paris: TPOT proposed Stacking Estimator using Extra Trees Classifier and GaussianNB
-Lyon: TPOT proposed Stacking Estimator using Extra Trees Classifier and XGBClassifier
-Comparison of obtained results.
-For both cities also Unsupervised Machine Learning models (KMeans, Agglomerative Clustering and DBSCAN) were checked in order to verify if data can be properly clustered from the perspective of air pollution. However, the obtain results were not satisfying (Silhouette Coefficient below 0.3). Thus, this part of the project was not developed further.
+db1
+Silhouette Coefficient: -0.939
+Variance Ratio Criterion: 1.751
 
-Results
-Paris
-The comparison of different models is presented in the Table below and in the Figure showing confusion matrix.
+db2
+Silhouette Coefficient: -0.170
+Variance Ratio Criterion: 1.504
 
-Model	Accuracy, %	Balanced Accuracy, %	f1_score, %
-Logistic Regression	76.2	67.7	75.3
-Random Forest Classifier	77.05	64.9	76.2
-Balanced RF	71.8	78.5	72.1
-Stacking Estimator	69.7	74.7	70.3
-Paris_CM
+db14
+DBSCAN(eps=0.02, min_samples=3)
+number of clusters:  2
 
-Basing on the obtained results I picked Balanced random Forest as the best model for Paris data, as it has high accuracy and the highest balanced Accuracy. Looking at the confusion matrix, this model correctly classified the highest number of days with bad air quality. Thus, I recommend using this model to predict air quality from weather data in Paris.
+db15
+DBSCAN(eps=0.03, min_samples=3)
+number of clusters:  2
 
-Lyon
-The comparison of different models is presented in the Table below and in the Figure showing confusion matrix.
+db16
+DBSCAN(eps=0.04, min_samples=3)
+number of clusters:  2
 
-Model	Accuracy, %	Balanced Accuracy, %	f1_score, %
-Logistic Regression	79.1	69.1	78.3
-Random Forest Classifier	81.7	69.9	81.1
-Balanced RF	76.9	79.3	76.7
-Stacking Estimator	83.4	73.2	83.4
-Lyon_CM
+db14
+Silhouette Coefficient: -0.170
+Variance Ratio Criterion: 1.504
 
-The similar case as for Paris can be observed for Lyon. Here the highest balanced accuracy was obtained with Balanced random Forest model. However, the model proposed by TPOT i.e. Stacking Estimator also shows very good results. Therefore, I would recommend one of these two models to predict air quality in Lyon using weather data.
+db15
+Silhouette Coefficient: -0.170
+Variance Ratio Criterion: 1.504
 
-Using : python, pandas, numpy, matplotlib, seaborn, sklearn, imblearn, tpot, yellowbrick
+db16
+Silhouette Coefficient: -0.170
+Variance Ratio Criterion: 1.504
 
-07 - EDA
-Exploratory Data Analysis was divided into two parts:
+## Conclusions
+After clustering I explore characteric of the cluster - on python and tableau
 
-firstly, the historical data on air pollution and weather in Paris and Lyon was analysed and compared
-secondly, the results of Time Series with the forecast for 2022 were analysed.
-The appropriate graphs were prepared. They can be found in the Jupyter notebook as well as on the Streamlit dashboard.
+Insights: 
+- Clustering shows poorer and richer clusters ( cluster0, richer, cluster1, poorer)
+- ![image](https://user-images.githubusercontent.com/93095187/153496758-367c98f6-f1d9-4f85-9137-9be176822b44.png)
 
-Using : python, pandas, matplotlib, seaborn, plotly, folium
 
-08 - Streamlit Dashboard
-The results of EDA were used in order to prepare a dashboard app using Streamlit library.
+- In cluster1 poorer: More Scheduled Castes & Tribes (respectively 67% and 61%) + More Muslims (59% of muslims in cluster1)
+![image](https://user-images.githubusercontent.com/93095187/153496796-d026a0a6-9a64-4eb2-83c0-dd36bc088c28.png)
 
-The app can be visited here:
+![image](https://user-images.githubusercontent.com/93095187/153496821-cbc3d3f8-e9a5-47d4-adda-ae8e51bc6160.png)
 
-Stramlit_App
+- The main difference seems to be  based on level of revenu
 
-Using : Streamlit, plotly, pillow
+The one who is poor and eats less is in majority from scheduled caste, Tribes and live more in rural sector
 
-Deploying to Heroku
-The prepared dashboard/app was published using Heroku
+There is no difference of the structure of food consumption related to the cast or religion values  ( when they have the same level of expenditure, the consumption is the same, whatever you are hindou, muslim, bouddhist, christian, hight cast or low cast)
+![image](https://user-images.githubusercontent.com/93095187/153496904-4b191c28-9382-4ff6-9022-081390465aaf.png)
 
-heroku git:remote -a air-quality-final-project
-git subtree push --prefix "08 - Streamlit" heroku main
-Dashboard
+![image](https://user-images.githubusercontent.com/93095187/153496920-af04c5a7-4cae-4e1d-bef8-3505a42f6e8e.png)
 
-Using : git, heroku
-
-Conclusions
-Air quality is better in Lyon than in Paris.
-Trend in both cities is decreasing for all pollutants.
-All pollutants show yearly and weekly seasonality.
-Applied model correctly forecast pollution concentration.
-Supervised ML model correctly predicts air quality basing on the weather information in both Paris and Lyon.
-Created database and pipeline allows to perform the same analysis for other cities in Europe.
