@@ -194,7 +194,7 @@ k-means clustering tries to group similar kinds of items in form of clusters. It
 
 - Select the k values.
 
--Initialize the centroids.
+- Initialize the centroids.
 
 - Select the group and find the average
 
