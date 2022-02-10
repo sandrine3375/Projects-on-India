@@ -113,7 +113,8 @@ As the study in base on monthly expenses, there is a lot of missing value. So I 
 
 ## Unsupervised model for clustering 
 
-Because the high number of columns a used PCA
+Because of the high number of columns I used PCA
+
 After I tryed different machine learning algorythms
 
 ### KMEANS 
@@ -193,7 +194,7 @@ After clustering I explore characteric of the cluster - on python and tableau
 Insights: 
 - Clustering shows poorer and richer clusters ( cluster0, richer, cluster1, poorer)
 
-- ![image](https://user-images.githubusercontent.com/93095187/153496758-367c98f6-f1d9-4f85-9137-9be176822b44.png)
+![image](https://user-images.githubusercontent.com/93095187/153496758-367c98f6-f1d9-4f85-9137-9be176822b44.png)
 
 
 - In cluster1 poorer: More Scheduled Castes & Tribes (respectively 67% and 61%) + More Muslims (59% of muslims in cluster1)
