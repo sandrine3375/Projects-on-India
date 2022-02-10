@@ -154,6 +154,8 @@ I used KElbowVisualizer(estimator = model, k = (2,5), metric='silhouette')
 
 ![image](https://user-images.githubusercontent.com/93095187/153495168-e7b83066-b17a-4f12-8f25-6576f3a86884.png)
 
+### COMPARAISON MODELS
+
 #### AgglomerativeClustering
 I used KElbowVisualizer (estimator = agc, k = (2,5), metric='silhouette')
 
@@ -183,7 +185,7 @@ gmm5
 Silhouette Coefficient: 0.539
 Variance Ratio Criterion: 552613.912
 
-### DBSCAN
+#### DBSCAN
 
 The results were:
 
