@@ -114,9 +114,36 @@ As the study in base on monthly expenses, there is a lot of missing value. So I 
 ## Unsupervised model for clustering 
 
 ### PCA
-Because of the high number of columns I used PCA
+Number of columns to cluster: 24
 
-Principal Component Analysis (PCA) is used for dimensionality reduction in machine learning. 
+Regular_salary_earner               
+Possess_ration_card                 
+MPCE_MRP                            
+Cereal                             
+Milk & Milk Products               
+Pulses and Pulse Products          
+beef / buffalo meat                
+beer                               
+chicken                            
+coffee, tea, juice                 
+country liquor                     
+edible oil                         
+eggs                               
+fish, prawn                        
+foreign/ refined liquor or wine    
+fruits_dry                         
+fruits_fresh                       
+goat meat /mutton                  
+packaged processed food            
+pan                               
+pork                               
+salt & sugar                       
+spices                             
+tobacco                           
+toddy                             
+vegetables                         
+
+I used PCA because in machine learning, Principal Component Analysis (PCA) is used for dimensionality reduction in machine learning. 
 
 PCA is used to filter noisy datasets, such as image compression.
 
