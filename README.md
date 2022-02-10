@@ -41,7 +41,8 @@ Second dataset: 'Regular_salary_earner', 'Possess_ration_card', 'MPCE_MRP'
 
 ### Selection of the food items: 
 First, selection of columns: 'Item_Code', 'Total_Consumption_Quantity',  'Total_Consumption_Value'
-Second, slection of items: 'Cereal', 'Milk & Milk Products',
+
+Second, selection of items: 'Cereal', 'Milk & Milk Products',
        'Pulses and Pulse Products', 'beef / buffalo meat', 'beer', 'chicken',
        'coffee, tea, juice', 'country liquor', 'edible oil', 'eggs',
        'fish, prawn', 'foreign/ refined liquor or wine', 'fruits_dry',
@@ -51,33 +52,42 @@ Second, slection of items: 'Cereal', 'Milk & Milk Products',
 ### Data Cleaning and Processing
 
 The selected data where cleaned before Supervised Machine Learning Analysis:
+
 Rename labels of columns
+
 Build a new classification with filter creation on food items
+
 Check for duplicates/ missing value
-In numeric columns, exclude outliers. I drwn a boxplot for each items
+
+In numeric columns, exclude outliers. I drawn a boxplot for each items
+
 In non-numeric columns, drop rows with small numbers of household (ex: 'Zoroastrianism)
-Check collinearity 
+
+Check collinearity. A correlation matrix was created and because of high collinearuty between pork and ganja doesn't make sense, I delete ganja ( lower number of rows than pork)
 
 ### Merging dataset. 
-I did a pivot table on the dataset on food which contains at 5000000 of rows.
+I did a pivot table on the food dataset which contains at 5000000 of rows. The items become a columns. 
+
 Then I used the unique identifiant for household to merge the datasets. 
 
+I checked again  collinearity with a heatmap.
+
+### Encoding non-numerical data: 
+I used LabelEncoder from sklearn.preprocessing
+
+### Missing values processing:
+As the study in base on monthly expenses, there is a lot of missing value. So I implement missing value by zero. Each household with zero is a non-consumer.
+
+### Unsupervised model for clustering 
+
+Because the high number of columns a used PCA
+After I tryed different machine learning algorythms
+
+#### KMEANS 
+I used KElbowVisualizer(estimator = model, k = (2,5), metric='silhouette'):
+![image](https://user-images.githubusercontent.com/93095187/153495168-e7b83066-b17a-4f12-8f25-6576f3a86884.png)
 
 
-
-missing values processing:
-columns 'so2' and 'co' were deleted due to the high number of missing values
-separate missing values were replaced by the average values of each pollutant for the specified month and year.
-for Paris there was a period of 3 months of missing data in 2017. In this case I decided to input the missing values of each day and each pollutant as an average of these values in 2016 and 2018.
-for Lyon there was a period of 6 months missing in the second half of 2021. Fortunately, these values, were presented in the other csv file at the air quality data source. Therefore, I imputed the missing values from the different file.
-Outliers. In order to check for outliers, I draw a boxplot graph for each pollutant. Basing on that visual representation of the data I could state that there were no outliers in data recorded both in Paris and Lyon.
-Cleaning for Supervised ML and EDA
-The aim of second stage of cleaning was to prepare the data for Supervised Machine Learning and EDA. This process included:
-
-exchanging columns with information about air quality for the clean ones from the previous stage of cleaning
-changing date type to datetime
-dropping columns 'latitude', 'longitude', 'address', 'datetimeEpoch', 'description' as they contain wither the same information or too various information, so they are not useful for machine learning model
-Missing values processing:
 columns 'snow', 'snowdepth', 'solarradiation', and 'solarenergy' were dropped due to the high number of missing values.
 1 missing value for precipitation was filled with 0, as from other columns it was clear that it did not rain that day.
 'windgust' contained 1 missing value and it was dropped due to the high correlation with windspeed column
