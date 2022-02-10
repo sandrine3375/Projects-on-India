@@ -1,6 +1,7 @@
 
 
-#Project Description: a consumer reseach based on social background
+# Project Description: 
+A consumer reseach based on social background
 This analysis will be an indicator of level of living and of the responsiveness of demand and will give a better understanding of the consumer. 
 
 There is a political issue: in a context of Hindu nationalism, the religion and casts are used for political purposes in order to divide Indians (the stigmatization is based food consumption)
@@ -9,7 +10,7 @@ The objective will be to see whether social characteristics determine consumptio
 Machine learning is used in order to classify consumption and see if consumption has a link with the social background.
 
 
-##Dataset
+## Dataset
 I will build a database from gouvernemental datasets: 
 India - Household Consumer Expenditure, NSS 68th Round Sch1.0 Type 2 : July 2011 
 This study has been conduct by the Ministry of Statistics and Programme Implementation came into existence as an Independent Ministry on 15.10.1999 after the merger of the Department of Statistics and the Department of Programme Implementatation. This ministry is the nodal agency for the planned and organized development of the statistical system in the country and coordination of statistical activities among different stakeholders in Government of India, State Governments as well as meeting requirements of the International Agencies.
@@ -29,16 +30,16 @@ Block 5.1 : Consumption of cereals, pulses, milk and milk products, sugar and sa
 Block 5.2 : Consumption of edible oil, egg, fish and meat, vegetables, fruits, spices, beverages and processed food and pan, tobacco and intoxicants.
 
 
-##workflow
+## Workflow
 After dowloading, data et feature selection: 
 The columns which presented relevant information for  analysis were the columns containing informations on class level ( revenue), geolocalisation, cast, religion
 
-### selection of the househoold characterics 
+### Selection of the househoold characterics 
 First dataset: 'Sector', 'HH_Size', 'Religion', 'Social_Group', 'whether_Land_owned', 'State_code'
        
 Second dataset: 'Regular_salary_earner', 'Possess_ration_card', 'MPCE_MRP'
 
-### selection of the food items: 
+### Selection of the food items: 
 First, selection of columns: 'Item_Code', 'Total_Consumption_Quantity',  'Total_Consumption_Value'
 Second, slection of items: 'Cereal', 'Milk & Milk Products',
        'Pulses and Pulse Products', 'beef / buffalo meat', 'beer', 'chicken',
@@ -57,7 +58,7 @@ In numeric columns, exclude outliers. I drwn a boxplot for each items
 In non-numeric columns, drop rows with small numbers of household (ex: 'Zoroastrianism)
 Check collinearity 
 
-###merging dataset. 
+### Merging dataset. 
 I did a pivot table on the dataset on food which contains at 5000000 of rows.
 Then I used the unique identifiant for household to merge the datasets. 
 
