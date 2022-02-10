@@ -113,7 +113,12 @@ As the study in base on monthly expenses, there is a lot of missing value. So I 
 
 ## Unsupervised model for clustering 
 
+### PCA
 Because of the high number of columns I used PCA
+
+Principal Component Analysis (PCA) is used for dimensionality reduction in machine learning. 
+
+PCA is used to filter noisy datasets, such as image compression.
 
 After I tryed different machine learning algorythms
 
