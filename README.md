@@ -187,6 +187,20 @@ db16
 Silhouette Coefficient: -0.170
 Variance Ratio Criterion: 1.504
 
+## Model comparaison
+I choose KMEANS which have better results. 
+
+k-means clustering tries to group similar kinds of items in form of clusters. It finds the similarity between the items and groups them into the clusters. K-means clustering algorithm works in three steps. Let’s see what are these three steps.
+
+- Select the k values.
+
+-Initialize the centroids.
+
+- Select the group and find the average
+
+https://github.com/scikit-learn/scikit-learn/blob/7e1e6d09b/sklearn/cluster/_kmeans.py
+
+
 ## Conclusions
 
 After clustering I explore characteric of the cluster - on python and tableau
