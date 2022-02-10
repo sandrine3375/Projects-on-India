@@ -1,4 +1,10 @@
-# procedure of exportation
+# Website of Mospi
+India - Household Consumer Expenditure, NSS 68th Round Sch1.0 Type 2 : July 2011 - June 2012, Type - 2
+
+[link](http://microdata.gov.in/nada43/index.php/catalog/126)
+
+# Procedure of exportation of data
+
 Install and open Nesstar explorer
 Export all data set in format sav
 Install pspp
