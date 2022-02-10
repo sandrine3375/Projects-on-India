@@ -221,7 +221,7 @@ db16
 Silhouette Coefficient: -0.170
 Variance Ratio Criterion: 1.504
 
-## Model comparaison
+## CLUSTERING WITH KMEANS
 I choose KMEANS which have better results. 
 
 k-means clustering tries to group similar kinds of items in form of clusters. It finds the similarity between the items and groups them into the clusters. K-means clustering algorithm works in three steps. Let’s see what are these three steps.
