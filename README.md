@@ -1,6 +1,6 @@
 
 
-# Project Description: 
+# Project Description 
 A consumer reseach based on social background
 This analysis will be an indicator of level of living and of the responsiveness of demand and will give a better understanding of the consumer. 
 
@@ -37,10 +37,14 @@ India - Household Consumer Expenditure, NSS 68th Round Sch1.0 Type 2 : July 2011
 ### Procedure of exportation of data
 
 Install and open Nesstar explorer
+
 Export all data set in format sav
-Install pspp
+
+Install PSPP
+
 Open file, then nouveau , then syntaxe
-Write:
+
+Write syntaxe  and execute:
 
 SAVE TRANSLATE
   /OUTFILE="C:\Users\Lenovo\Documents\INDEDATA\block5.csv"  
@@ -59,8 +63,8 @@ SAVE TRANSLATE
 
 
 
-## Workflow
-After dowloading, data et feature selection: 
+# Workflow
+## After dowloading: data et feature selection 
 The columns which presented relevant information for  analysis were the columns containing informations on class level ( revenue), geolocalisation, cast, religion
 
 ### Selection of the househoold characterics 
@@ -78,7 +82,7 @@ Second, selection of items: 'Cereal', 'Milk & Milk Products',
        'fruits_fresh', 'goat meat /mutton', 'packaged processed food', 'pan',
        'pork', 'salt & sugar', 'spices', 'tobacco', 'toddy', 'vegetables'
 
-### Data Cleaning and Processing
+## Data Cleaning and Processing
 
 The selected data where cleaned before Supervised Machine Learning Analysis:
 
@@ -94,33 +98,36 @@ In non-numeric columns, drop rows with small numbers of household (ex: 'Zoroastr
 
 Check collinearity. A correlation matrix was created and because of high collinearuty between pork and ganja doesn't make sense, I delete ganja ( lower number of rows than pork)
 
-### Merging dataset. 
+## Merging dataset
 I did a pivot table on the food dataset which contains at 5000000 of rows. The items become a columns. 
 
 Then I used the unique identifiant for household to merge the datasets. 
 
 I checked again  collinearity with a heatmap.
 
-### Encoding non-numerical data: 
+## Encoding non-numerical data
 I used LabelEncoder from sklearn.preprocessing
 
-### Missing values processing:
+## Missing values processing
 As the study in base on monthly expenses, there is a lot of missing value. So I implement missing value by zero. Each household with zero is a non-consumer.
 
-### Unsupervised model for clustering 
+## Unsupervised model for clustering 
 
 Because the high number of columns a used PCA
 After I tryed different machine learning algorythms
 
-#### KMEANS 
+### KMEANS 
 I used KElbowVisualizer(estimator = model, k = (2,5), metric='silhouette')
+
 ![image](https://user-images.githubusercontent.com/93095187/153495168-e7b83066-b17a-4f12-8f25-6576f3a86884.png)
 
 #### AgglomerativeClustering
 I used KElbowVisualizer (estimator = agc, k = (2,5), metric='silhouette')
+
 ![image](https://user-images.githubusercontent.com/93095187/153495478-0027d11d-eaa0-49bb-9fd9-adc77d1c22b0.png)
 
 #### GaussianMixture
+
 The results where:
 
  gmm2
@@ -144,6 +151,7 @@ Silhouette Coefficient: 0.539
 Variance Ratio Criterion: 552613.912
 
 ### DBSCAN
+
 The results were:
 
 db1
@@ -179,24 +187,32 @@ Silhouette Coefficient: -0.170
 Variance Ratio Criterion: 1.504
 
 ## Conclusions
+
 After clustering I explore characteric of the cluster - on python and tableau
 
 Insights: 
 - Clustering shows poorer and richer clusters ( cluster0, richer, cluster1, poorer)
+
 - ![image](https://user-images.githubusercontent.com/93095187/153496758-367c98f6-f1d9-4f85-9137-9be176822b44.png)
 
 
 - In cluster1 poorer: More Scheduled Castes & Tribes (respectively 67% and 61%) + More Muslims (59% of muslims in cluster1)
+
 ![image](https://user-images.githubusercontent.com/93095187/153496796-d026a0a6-9a64-4eb2-83c0-dd36bc088c28.png)
+
 
 ![image](https://user-images.githubusercontent.com/93095187/153496821-cbc3d3f8-e9a5-47d4-adda-ae8e51bc6160.png)
 
+
 - The main difference seems to be  based on level of revenu
+
 
 The one who is poor and eats less is in majority from scheduled caste, Tribes and live more in rural sector
 
 There is no difference of the structure of food consumption related to the cast or religion values  ( when they have the same level of expenditure, the consumption is the same, whatever you are hindou, muslim, bouddhist, christian, hight cast or low cast)
+
 ![image](https://user-images.githubusercontent.com/93095187/153496904-4b191c28-9382-4ff6-9022-081390465aaf.png)
+
 
 ![image](https://user-images.githubusercontent.com/93095187/153496920-af04c5a7-4cae-4e1d-bef8-3505a42f6e8e.png)
 
